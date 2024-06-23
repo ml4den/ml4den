@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mladen Kirilov - Link in Bio</title>
+    <style>
+        :root {
+            --bg-color: #f0f0f0;
+            --container-bg: white;
+            --text-color: #333;
+            --text-color-secondary: #666;
+            --link-bg: #f0f0f0;
+            --link-bg-hover: #e0e0e0;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --container-bg: #2a2a2a;
+            --text-color: #f0f0f0;
+            --text-color-secondary: #ccc;
+            --link-bg: #3a3a3a;
+            --link-bg-hover: #4a4a4a;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            background-color: var(--container-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        h1 {
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+        .bio {
+            text-align: center;
+            color: var(--text-color-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .link {
+            background-color: var(--link-bg);
+            color: var(--text-color);
+            padding: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+        .link:hover {
+            background-color: var(--link-bg-hover);
+        }
+        .link-title {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        .link-description {
+            font-size: 0.9rem;
+            color: var(--text-color-secondary);
+            display: block;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    <div class="container">
+        <h1>Mladen Kirilov</h1>
+        <p class="bio">Cybersecurity professional who also sometimes writes and builds things.</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/mladenkirilov/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ml4den"><i class="fa-brands fa-github"></i></a>
+            <a href="https://x.com/mladenkirilov"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <div class="links">
+            <a href="https://www.linkedin.com/newsletters/7173771047589052418/" class="link">
+                <span class="link-title">🗞️ My Cybersecurity Newsletter on LinkedIn</span>
+                <span class="link-description">Sign up for a weekly summary of cybersecurity news.</span>
+            </a>
+            <a href="https://cybernewsweekly.substack.com/" class="link">
+                <span class="link-title">🗞️ My Cybersecurity Newsletter on Substack</span>
+                <span class="link-description">If you prefer a nice email every week.</span>
+            </a>
+            <a href="https://medium.com/ml4den" class="link">
+                <span class="link-title">📰 My Blog on Medium</span>
+                <span class="link-description">Includes the newsletter as well as other articles.</span>
+            </a>
+            <a href="https://gonenote.ml4den.com/" class="link">
+                <span class="link-title">My Zero-Knowledge Note Passing App</span>
+                <span class="link-description">Send encrypted self-destructing notes securely.</span>
+            </a>
+            <a href="https://github.com/ml4den" class="link">
+                <span class="link-title">🌿 My GitHub</span>
+                <span class="link-description">Check out some of the things I've built.</span>
+            </a>
+        </div>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to light mode
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
