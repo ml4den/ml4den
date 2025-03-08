@@ -95,9 +95,10 @@
             display: block;
         }
         .theme-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: relative;
+            float: right;
+            margin-top: -10px;
+            margin-right: -10px;
             background: none;
             border: none;
             color: var(--text-color);
@@ -108,10 +109,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle">
-        <i class="fas fa-moon"></i>
-    </button>
     <div class="container">
+        <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
         <h1>Mladen Kirilov</h1>
         <p class="bio">Cybersecurity professional who also sometimes writes and builds things.</p>
         <div class="social-icons">
